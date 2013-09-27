@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <WBL_BirthdayGreeting>
+            <version>0.1.0</version>
+        </WBL_BirthdayGreeting>
+    </modules>
+    <global>
+        <template>
+            <email>
+                <wbl_birthdaygreeting_general_template translate="label" module="wbl_birthdaygreeting">
+                    <label>Birthday Greeting Mail</label>
+                    <file>wbl/wbl_birthday_greeting.html</file>
+                    <type>html</type>
+                </wbl_birthdaygreeting_general_template>
+            </email>
+        </template>
+        <models>
+            <wbl_birthdaygreeting>
+                <class>WBL_BirthdayGreeting_Model</class>
+                <resourceModel>wbl_birthdaygreeting_resource</resourceModel>
+            </wbl_birthdaygreeting>  
+        </models>
+       
+        <helpers>
+            <wbl_birthdaygreeting>
+                <class>WBL_BirthdayGreeting_Helper</class>
+            </wbl_birthdaygreeting>
+        </helpers>
+    </global>
+    <crontab>
+        <jobs>
+            <wbl_birthday_greeting>
+                <schedule>
+                    <cron_expr>0 1 * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>wbl_birthdaygreeting/cron::sendBirthayEmail</model>
+                </run>
+            </wbl_birthday_greeting>
+        </jobs>
+    </crontab>
+</config>
