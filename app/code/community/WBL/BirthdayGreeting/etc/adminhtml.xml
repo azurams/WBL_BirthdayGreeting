@@ -1,0 +1,21 @@
+<config>
+	<acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+									<wbl_birthdaygreeting translate="title" module="wbl_birthdaygreeting">
+                                	<title>Birthday Greeting</title>
+                            		</wbl_birthdaygreeting>
+                            	</children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

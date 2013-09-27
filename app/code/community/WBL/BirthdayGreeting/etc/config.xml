@@ -10,7 +10,7 @@
             <email>
                 <wbl_birthdaygreeting_general_template translate="label" module="wbl_birthdaygreeting">
                     <label>Birthday Greeting Mail</label>
-                    <file>wbl/wbl_birthday_greeting.html</file>
+                    <file>wbl/birthday_greeting.html</file>
                     <type>html</type>
                 </wbl_birthdaygreeting_general_template>
             </email>
@@ -35,9 +35,16 @@
                     <cron_expr>0 1 * * *</cron_expr>
                 </schedule>
                 <run>
-                    <model>wbl_birthdaygreeting/cron::sendBirthayEmail</model>
+                    <model>wbl_birthdaygreeting/cron::process</model>
                 </run>
             </wbl_birthday_greeting>
         </jobs>
     </crontab>
+    <default>
+        <wbl_birthdaygreeting>
+            <general>
+                <subject>Birthday Greeting Email</subject>
+            </general>
+        </wbl_birthdaygreeting>
+    </default>
 </config>
